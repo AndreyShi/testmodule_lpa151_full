@@ -567,7 +567,14 @@
         "AC5": {
           "version": 4,
           "beforeBuildTasks": [],
-          "afterBuildTasks": [],
+          "afterBuildTasks": [
+            {
+              "name": "build hex",
+              "disable": false,
+              "abortAfterFailed": false,
+              "command": "fromelf.exe --i32 -o ./build/testmodule_lpa_151/m_lpa_151.hex d:\\Projects\\testmodule_lpa151_full\\build\\testmodule_lpa_151\\testmodule_lpa_151.axf"
+            }
+          ],
           "global": {
             "use-microLIB": true,
             "output-debug-info": "enable"
@@ -585,7 +592,6 @@
           },
           "linker": {
             "output-format": "elf",
-            "xo-base": "",
             "ro-base": "0x08000000",
             "rw-base": "0x20000000",
             "misc-controls": "--diag_suppress=L6329"

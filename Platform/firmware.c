@@ -2188,13 +2188,13 @@ for(addr = 0x00000000; addr < N25Q128A_FLASH_SIZE; addr+= N25Q128A_SECTOR_SIZE)
 
 if(found != 1)
     {
-    Error_Handler();
+    //Error_Handler();
     return;
     }
 
 if(QSPI_Read(addr, (uint8_t *)&active_sector, sizeof(flash_sector_t)) != QSPI_OK)
     {
-    Error_Handler();
+    //Error_Handler();
     return;
     }
 
@@ -2202,7 +2202,9 @@ if(QSPI_Read(addr, (uint8_t *)&active_sector, sizeof(flash_sector_t)) != QSPI_OK
 if(active_sector.flash_flags.erased != 0 ||
    active_sector.flash_flags.has_data != 0 ||
    active_sector.flash_flags.invalid != 1)
-    { Error_Handler(); }
+    { 
+		//Error_Handler(); 
+	}
 
 active_sector_address = addr;
 state = SAVE_IDLE;
