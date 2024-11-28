@@ -1,0 +1,18 @@
+syntax: glob
+*.swp
+*.hex
+*.elf
+*.map
+*.d
+*.o
+*.o.d
+*.lss
+*.eep
+*.aws
+*.tmp
+*.fw
+*.crf
+.mxproject
+MDK-ARM
+Inc/mxconstants.h
+moc_*
