@@ -4,7 +4,8 @@
 #include <string.h>
 
 #include "qspi_flash.h"
-
+#include "common.h"
+#include "app_export.h"
 //--------------------------------------------------
 static qspi_flash_state_t flash_state;
 static uint8_t flash_status;
@@ -507,7 +508,10 @@ if(HAL_QSPI_Command(qspi, &cmd, HAL_QPSI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
     { return QSPI_ERROR; }
 
 if(QSPI_AutoPollingMemReady(qspi, HAL_QPSI_TIMEOUT_DEFAULT_VALUE) != QSPI_OK)
-    { return QSPI_ERROR; }
+    { 
+		_Error_Handler_new(TM_151_LED_BLUE);
+		return QSPI_ERROR; 
+	}
 
 return QSPI_OK;
 }/*}}}*/

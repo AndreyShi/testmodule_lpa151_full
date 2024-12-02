@@ -180,6 +180,14 @@ while(1)
     HAL_Delay(300);
     }
 }/*}}}*/
+void _Error_Handler_new(int led)/*{{{*/
+{
+while(1)
+    {
+    led_tgl((_led_id)led);
+    HAL_Delay(300);
+    }
+}/*}}}*/
 //--------------------------------------------------
 void HardFault_Handler(void)/*{{{*/
 {
